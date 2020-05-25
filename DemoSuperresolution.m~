@@ -1,0 +1,18 @@
+close all;
+clear all;
+sr=4;
+x=im2double(imread('data/head256.png'));
+xnans=x;
+xsub=x(1:sr:end,1:sr:end);
+xnans=zeros(size(x));
+xnans(1:sr:end,1:sr:end)=xsub;
+figure(1)
+subplot(1,3,1)
+imshow(x)
+subplot(1,3,2)
+imshow(xsub)
+subplot(1,3,3)
+imshow(xnans)
+
+xr=NESTA_fill_nans()
+
